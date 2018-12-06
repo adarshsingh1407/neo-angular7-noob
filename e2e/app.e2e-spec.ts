@@ -7,8 +7,8 @@ describe('neo-angular7-noob App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display app title correctly', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('NEO Angular7 Noob');
   });
 });
