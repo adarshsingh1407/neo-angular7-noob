@@ -1,6 +1,8 @@
-# NeoAngular7Noob
+# NeoAngular7Noob (Migrated to Angular7)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
+
+Edit: Updated to "@angular/cli": "^7.1.1"
 
 ## Development server
 
