@@ -3,12 +3,15 @@ const path = require('path');
 const compression = require('compression');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const SERVER_CONFIG = require('./config/serverConfig');
 const ServerHelper = require('./helpers/serverHelper');
 
 const port = process.env.PORT || SERVER_CONFIG.DEFAULT_PORT;
 const nodeEnv = process.env.NODE_ENV;
+
+const CONST = require('./server/constants');
 
 const app = express();
 
@@ -26,9 +29,15 @@ app.use(ServerHelper.logErrors);
 app.use(ServerHelper.clientErrorHandler);
 app.use(ServerHelper.errorHandler);
 
+app.use(cors())
+
 app.use(express.static('dist'));
 
-app.get('/*', function (req, res) {
+app.get('/heroes', (req, res) => {
+  res.send(CONST.HEROES);
+});
+
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
